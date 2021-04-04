@@ -58,11 +58,11 @@ public class ProductServiceUsingThread {
         return new Product(productId, productInfo, review);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         ProductInfoService productInfoService = new ProductInfoService();
         ReviewService reviewService = new ReviewService();
-        ProductService productService = new ProductService(productInfoService, reviewService);
+        ProductServiceUsingThread productService = new ProductServiceUsingThread(productInfoService, reviewService);
         String productId = "ABC123";
         Product product = productService.retrieveProductDetails(productId);
         log("Product is " + product);
